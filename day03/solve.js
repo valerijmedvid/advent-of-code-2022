@@ -19,15 +19,14 @@ try {
 }
 
 const scoreTable = {}
-
-const letterCnt = 26
-const charTableShift = 32
 const generateScoreTable = () => {
-  let cnt = 1
-  for (let i = 97; i <= 122; i++) {
-    scoreTable[String.fromCharCode(i)] = cnt
-    scoreTable[String.fromCharCode(i - charTableShift)] = cnt + letterCnt
-    cnt++
+  const lowLetterStarts = 97
+  const upLetterStarts = 65
+  const lettersCount = 26
+
+  for (let i = 0; i < lettersCount; i++) {
+    scoreTable[String.fromCharCode(i + lowLetterStarts)] = i + 1
+    scoreTable[String.fromCharCode(i + upLetterStarts)] = i + 1 + lettersCount
   }
 }
 generateScoreTable()
