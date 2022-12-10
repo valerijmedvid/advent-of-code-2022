@@ -88,9 +88,8 @@ function solve2() {
 
   inputData.forEach((line) => {
     for (let i = 0; i < line.moves; i++) {
-      // Move the head according to the instructions
       knots[0].move(line.dir)
-      // Move the rest of the rope
+
       for (let knot = 1; knot < knots.length; knot++) {
         const point = knots[knot]
         point.follow(knots[knot - 1])
